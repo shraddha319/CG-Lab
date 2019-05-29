@@ -65,7 +65,7 @@ void myinit()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluOrtho2D(0,500,0,500);
+	gluOrtho2D(-500,500,-500,500);
 	glMatrixMode(GL_MODELVIEW);
 }
 

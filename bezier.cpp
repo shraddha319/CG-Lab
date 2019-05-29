@@ -24,12 +24,11 @@ void bino(int n, int *C)
 	}
 }
 
-void ComputeBezier(float u, wcPt3D * BezPt, int nCtrlPts, wcPt3D * CtrlPts, int * C)
+void ComputeBezier(float u, wcPt3D *BezPt, int nCtrlPts, wcPt3D *CtrlPts, int *C)
 {
 	float blendfunc;
 	int n = nCtrlPts-1;
 	BezPt->x = BezPt->y = BezPt->z = 0;
-
 	for(int k=0;k<nCtrlPts;k++)
 	{
 		blendfunc = C[k] * pow(u,k) * pow((1-u),(n-k));
@@ -39,14 +38,12 @@ void ComputeBezier(float u, wcPt3D * BezPt, int nCtrlPts, wcPt3D * CtrlPts, int 
 	}
 }
 
-void bezier(wcPt3D * CtrlPts, int nCtrlPts, int nBezPts)
+void bezier(wcPt3D *CtrlPts, int nCtrlPts, int nBezPts)
 {
 	wcPt3D BezPt;
 	float u;
-	int * C =new GLint[nCtrlPts];
-
+	int *C =new GLint[nCtrlPts];
 	bino(nCtrlPts-1,C);
-
 	glBegin(GL_LINE_STRIP);
 	for(int i=0;i<=nBezPts;i++)
 	{
